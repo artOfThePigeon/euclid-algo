@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<style>
+		table {
+			border: solid 1px;
+		}
+		thead {
+			border-bottom: 1px;
+		}
+		th {
+			padding: 10px;
+			text-align: center;
+		}
+		td {
+  			padding: 10px;
+		}
+	</style>
+	first number: <input type="text" id="first"><br/>
+	second number: <input type="text" id="second"><br/><br/>
+	<input type="submit" value="Submit"><br/>
+	<p>a = q * b + r</p><br/>
+	<table>
+    <thead>
+        <th>a</th>
+        <th>q</th>
+        <th>b</th>
+        <th>r</th>
+    </thead>
+    <tbody>
+        <!-- the euclid algorithm values go here -->
+    </tbody>
+</table>
+	<p id="gcd"></p>
+<script type="text/javascript" src="euclid.js"></script>
+</body>
+</html>
