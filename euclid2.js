@@ -15,7 +15,7 @@ function order(list) {
 }
 
 function suiterList(gauls, greeks) { 
-   let columns = [];
+   const columns = [];
    for (let i = 0; i < gauls; i++ ) {
       columns.push(['Gaul']);
    }
@@ -26,9 +26,9 @@ function suiterList(gauls, greeks) {
 }
 
 function euclidSort(array, a, b) {
-   let q = Math.trunc(a / b);
-   let r = (a % b);
-   for (let qCounter = 0; qCounter < q; qCounter++) {
+   const q = Math.trunc(a / b);
+   const r = (a % b);
+   for (let qCount = 0; qCount < q; qCount++) {
       for (let i = 0; i < b; i++ ) {
          array[i] = array[i].concat(array.pop());
       } 
@@ -36,12 +36,14 @@ function euclidSort(array, a, b) {
    return !(r > 1) ? lineUp(array) : euclidSort(array, b, r);
 }
 
-function lineUp(sortedArray) {
-   let linedUp = [];
-   for (let i of sortedArray) {
+
+function lineUp(sortedColumns) {
+   let linedUp = []
+   for (let i of sortedColumns) {
       linedUp = linedUp.concat(i);
    }
    return linedUp;
+   // return sortedColumns.forEach(i => linedUp = linedUp.concat(i));
 }
 
 window.addEventListener("keypress", () => {
