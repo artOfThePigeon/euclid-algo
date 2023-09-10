@@ -1,3 +1,5 @@
+
+
 const first = document.getElementById("first");
 const second = document.getElementById("second");
 const submit = document.querySelector("input[type=submit]");
@@ -6,24 +8,36 @@ function runSorter(event) {
    let larger = Math.max(Number(first.value),Number(second.value));
    let smaller = Math.min(Number(first.value),Number(second.value));
    !Number.isNaN(larger % smaller) ?
-      order(suiterList(larger, smaller)) :
-      document.getElementById("gcd").innerHTML = 'enter valid numbers';
+      displayOrdered(suiterList(larger,smaller)) :
+      document.getElementById("ordered").innerHTML = 'enter valid numbers';
 }
 
-function order(list) {
+function displayOrdered(list) {
    document.getElementById("ordered").innerHTML = list;
 }
 
-function suiterList(gauls, greeks) { 
-   const columns = [];
-   for (let i = 0; i < gauls; i++ ) {
-      columns.push(['Gaul']);
-   }
-   for (let i = 0; i < greeks; i ++) {
-      columns.push(['Greek']);
-   }
-   return euclidSort(columns, gauls, greeks);
+function suiterList(a, b) { 
+   let gauls = [];
+   let greeks = [];
+   populate(a, i => {
+   gauls.push(`Gaul ${i + 1}`);
+   });
+   populate(b, i => {
+   greeks.push(`Greek ${i + 1}`);
+   });
+   return euclidSort(columns(gauls, greeks), a, b)
 }
+
+function populate(n, action) {
+    for (let i = 0; i < n; i++) {
+        action(i);
+    }
+}
+
+function columns(array1, array2) {
+  return array1.concat(array2).map(i => [i]);
+}
+
 
 function euclidSort(array, a, b) {
    const q = Math.trunc(a / b);
